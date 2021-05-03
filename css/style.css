@@ -482,7 +482,7 @@ margin-bottom: 20px;
         margin: 0 auto;
         padding: 60px 20px 0;
         height: 100vh;
-        background: center center /  cover no-repeat url("../images/header-back-image.png");
+        background: center -140px /  cover no-repeat url("../images/header-back-image.png");
     }
     
     .page-header__nav {
