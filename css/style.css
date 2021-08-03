@@ -149,7 +149,7 @@ section:not(.adventuresWith , .search) {
     width: 100%;
     min-width: 1600px;
     height: 100vh;
-    margin-bottom: 100px;
+    margin-bottom: 250px;
 }
 
 .country {
@@ -235,6 +235,7 @@ section:not(.adventuresWith , .search) {
     z-index: -1;
 }
 */
+
 .visit__content-box {
     display: flex;
     flex-direction: row;
@@ -251,48 +252,53 @@ section:not(.adventuresWith , .search) {
 
 .visit__content-image-slider {
     width: 60%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
+    position: relative;
 }
 
 .visit__content-image-slider-item {
     width: 310px;
-    height: 583px;
-    position: relative;
+    height: 580px;
+    z-index: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+    filter: brightness(40%);
+    position: absolute;
+    left: calc(50% - 165px);
+    top: 0;
+    transition: all 0.7s ease-in-out;
+}
+
+.visit__content-image-slider-item--left {
+    transform: translateX(-200px) scale(0.7);
+}
+
+.visit__content-image-slider-item--right {
+    transform: translateX(200px) scale(0.7);
+}
+}
+
+.visit__content-image-slider-item--active {
+    width: 310px;
+    height: 580px;
     z-index: 2;
-}
-
-.visit__content-image-slider-item:nth-child(1) {
-    position: relative;
-    right: -100px;
-    transform: scale(0.7);
-    z-index: 1;
-    opacity: 0.4;
-}
-
-.visit__content-image-slider-item:nth-child(3) {
-    position: relative;
-    left: -100px;
-    transform: scale(0.7);
-    z-index: 1;
-    opacity: 0.4;
+    cursor: pointer;
+    transform: scale(1);
+    position: absolute;
+    left: calc(50% - 165px);
+    filter: brightness(100%);
+    top: 0;
 }
 
 .content-heading {
     font-size: 36px;
     line-height: 1;
     padding-bottom: 40px;
-    border-bottom: 3px solid #17F40F;
 }
+
 
 .adventuresWith__person-name {
     padding: 15px 0;
     font-weight: 400;
-}
-
-.adventuresWith__person-name--active {
-    border-top: 3px solid #17F40F;
 }
 
 .adventuresWith__person-box {
@@ -469,7 +475,6 @@ margin-bottom: 20px;
         top: -50px;
         left: calc(50% - 40px);
     }
-}
 
 @media (max-width: 600px) {
     .page-header {
@@ -880,4 +885,33 @@ margin-bottom: 20px;
             left: calc(50% - 40px);
         }
     
+}
+
+.adventuresWith__person img{
+    filter: grayscale(100%);
+    transition: all 1s ease;
+}
+
+.adventuresWith__person {
+    cursor: pointer;
+    transition: all 1s ease;
+    transform: scale(1);
+}
+
+.adventuresWith__person--active {
+    transform: scale(1.1);
+}
+
+
+.adventuresWith__person:hover{
+    transform: scale(1.1);
+}
+
+.adventuresWith__person:hover img{
+    filter: grayscale(0%);
+}
+
+
+.adventuresWith__person--active img{
+    filter: none;
 }
